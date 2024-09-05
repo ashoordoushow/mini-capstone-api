@@ -2,6 +2,12 @@ class ProductsController < ApplicationController
     def 
         protect_from_forgery with: :exception, unless: -> { request.format.json? }
     end
+    def index
+        @products = Product.all
+        render template: "products/index"
+        
+
+    end
     def one
         @product = Product.find_by(id: 3)
         # p product 
@@ -40,3 +46,5 @@ end
 #     )
 #     @product.save
 #     render template: "products/show"
+
+# render json: {name: @products[0].name} #this was used when '@products = Product.all' to print out the name of the first product in the array
