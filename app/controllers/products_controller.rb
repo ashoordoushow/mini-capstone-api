@@ -9,7 +9,9 @@ class ProductsController < ApplicationController
 
     end
     def one
-        @product = Product.find_by(id: 3)
+        @product = Product.find_by(id: params["id"]) # i took the 'params["id"]' and included into the 'find_by' method
+        # p params["id"]
+         #to access ':id' i can in controller i can print out the params 'hash'
         # p product 
         render template: "products/show" #when typing this you MUST type product(s) plural NOT singular or else it wont run correctly!
         # render template: "products/index"                                 #show is for 1 product & is looking for a variable that is "@product"
@@ -48,3 +50,6 @@ end
 #     render template: "products/show"
 
 # render json: {name: @products[0].name} #this was used when '@products = Product.all' to print out the name of the first product in the array
+
+# @product = Product.find_by(id: 3)
+# p params["id"]

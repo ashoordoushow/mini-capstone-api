@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   get "/products" => "products#index" #now we're going to use this route to display all products at once
   # get "/products/:id" => "products#show"
   # post "/products" => "products#create"
-  get "/one_product" => "products#one" #this was used to display how we used the 'show' 'jbuilder' file to display 1 product at a time 
-
+  # get "/one_product" => "products#one" #this was used to display how we used the 'show' 'jbuilder' file to display 1 product at a time 
+  get "/one_product/:id" => "products#one" # '/:' 'purple_hippo' can be anything 
   
   
   
