@@ -8,7 +8,7 @@ class ProductsController < ApplicationController
         
 
     end
-    def one
+    def show
         @product = Product.find_by(id: params["id"]) # i took the 'params["id"]' and included into the 'find_by' method
         # p params["id"]
          #to access ':id' i can in controller i can print out the params 'hash'

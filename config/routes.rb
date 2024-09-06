@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   # get "/products/:id" => "products#show"
   # post "/products" => "products#create"
   # get "/one_product" => "products#one" #this was used to display how we used the 'show' 'jbuilder' file to display 1 product at a time 
-  get "/one_product/:id" => "products#one" # '/:' 'purple_hippo' can be anything 
-  
+  get "/one_product/:id" => "products#show" # this is a SEGMENT PARAM very useful and important! # '/:' 'purple_hippo' can be anything 
+                                          #make sure if you're going to do the 'show' method for singular products always make the 'action:' show, this is the proper way to code.
   
   
   # get "/product", controller: "products", action: "all"
