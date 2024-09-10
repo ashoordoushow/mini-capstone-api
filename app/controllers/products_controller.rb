@@ -10,17 +10,28 @@ class ProductsController < ApplicationController
             @product.save  #also must add '@' to this as well
         render template: "products/show"
             #render json: {name: "hjbsd"} #change this to render template now
-       
-        
+    end
+
+
+    def show
+        @product = Product.find_by(id: params[:id]) #Or you can write the method like this, which is the STANDARD way of writing it.
+        render template: "products/show" #when typing this you MUST type product(s) plural NOT singular or else it wont run correctly!
+    end
+
+    def update
+        @product = Product.find_by(id: 5)
+        @product.name = "towel!!!"
+        @product.price = 12
+        @product.image_url = "https://cottoncreations.com/content/uploads/2021/02/Huck-1-scaled.jpg"
+        @product.description = "white towel"
+        render template: "products/show"
+
+        @product.save
+
+
+        # render json: {name: "ksfbjn"}
     end
 end
-
-def show
-     
-    @product = Product.find_by(id: params[:id]) #Or you can write the method like this, which is the STANDARD way of writing it.
-    render template: "products/show" #when typing this you MUST type product(s) plural NOT singular or else it wont run correctly!
-end
-
 
 # show
 # send an id in params                          #this was a previous logic in 'def' method                      
