@@ -32,6 +32,12 @@ class ProductsController < ApplicationController
 
         # render json: {name: "ksfbjn"}
     end
+    def destroy
+        @product = Product.find_by(id: params[:id]) 
+        # product = Product.find_by(id: 6) #change this to ^ to chose an id through httpie url to delete!
+        @product.destroy
+        render json: {name: "hjbdsf"}
+    end
 end
 
 # show

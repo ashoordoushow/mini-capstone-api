@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get "/products/:id" => "products#show"
   get "/products" => "products#index"
   patch "/products/:id" => "products#update"
+  delete "products/:id" => "products#destroy"
 end
 
 
