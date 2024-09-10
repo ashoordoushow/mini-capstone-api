@@ -19,11 +19,12 @@ class ProductsController < ApplicationController
     end
 
     def update
-        @product = Product.find_by(id: 5)
-        @product.name = "towel!!!"
-        @product.price = 12
-        @product.image_url = "https://cottoncreations.com/content/uploads/2021/02/Huck-1-scaled.jpg"
-        @product.description = "white towel"
+        @product = Product.find_by(id: params[:id]) 
+        # @product = Product.find_by(id: 5) #change this to ^ to change a whole existing product to the attributes below
+        @product.name = params[:name]
+        @product.price = params[:price]
+        @product.image_url = params[:image_url]
+        @product.description = params[:description]
         render template: "products/show"
 
         @product.save
