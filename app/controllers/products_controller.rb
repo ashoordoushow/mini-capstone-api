@@ -12,6 +12,13 @@ class ProductsController < ApplicationController
             #render json: {name: "hjbsd"} #change this to render template now
     end
 
+    def index
+        @products = Product.all
+        render :index
+        # render template: "products/index" #instead of using 'render template "products/index' or "products/show" you can also use 'render :index' or 'render :show' instead
+    end
+        
+
 
     def show
         @product = Product.find_by(id: params[:id]) #Or you can write the method like this, which is the STANDARD way of writing it.
@@ -75,10 +82,7 @@ end
 #     protect_from_forgery with: :exception, unless: -> { request.format.json? }
 # end
 
-# index
-#         @products = Product.all
-#         render template: "products/index"
-        
+
 # def show       
 #     # @product = Product.find_by(id: params["id"]) # i took the 'params["id"]' and included into the 'find_by' method
 #     @product = Product.find_by(id: params[:id]) #Or you can write the method like this, which is the STANDARD way of writing it.
