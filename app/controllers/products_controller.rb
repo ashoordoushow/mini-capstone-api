@@ -1,27 +1,26 @@
 class ProductsController < ApplicationController
-    def 
-        protect_from_forgery with: :exception, unless: -> { request.format.json? }
-    end
-    def index
-        @products = Product.all
-        render template: "products/index"
+    def create
+        p params[:description]
+        @product = Product.new(             #add '@' here       #I can run this in my controller and create new syntax through my controller
+            name: params[:name], 
+            price: params[:price], 
+            image_url: params[:image_url], 
+            description: params[:description]
+            )
+            @product.save  #also must add '@' to this as well
+        render template: "products/show"
+            #render json: {name: "hjbsd"} #change this to render template now
+       
         
-
-    end
-    def show
-        @product = Product.find_by(id: params["id"]) # i took the 'params["id"]' and included into the 'find_by' method
-        # p params["id"]
-         #to access ':id' i can in controller i can print out the params 'hash'
-        # p product 
-        render template: "products/show" #when typing this you MUST type product(s) plural NOT singular or else it wont run correctly!
-        # render template: "products/index"                                 #show is for 1 product & is looking for a variable that is "@product"
-
-        # render json: {message: product.image_url}
-
-
-    
     end
 end
+
+def show
+     
+    @product = Product.find_by(id: params[:id]) #Or you can write the method like this, which is the STANDARD way of writing it.
+    render template: "products/show" #when typing this you MUST type product(s) plural NOT singular or else it wont run correctly!
+end
+
 
 # show
 # send an id in params                          #this was a previous logic in 'def' method                      
@@ -53,3 +52,26 @@ end
 
 # @product = Product.find_by(id: 3)
 # p params["id"]
+
+# def 
+#     protect_from_forgery with: :exception, unless: -> { request.format.json? }
+# end
+
+# index
+#         @products = Product.all
+#         render template: "products/index"
+        
+# def show       
+#     # @product = Product.find_by(id: params["id"]) # i took the 'params["id"]' and included into the 'find_by' method
+#     @product = Product.find_by(id: params[:id]) #Or you can write the method like this, which is the STANDARD way of writing it.
+#     # p params["id"]
+#      #to access ':id' i can in controller i can print out the params 'hash'
+#     # p product 
+#     render template: "products/show" #when typing this you MUST type product(s) plural NOT singular or else it wont run correctly!
+#     # render template: "products/index"                                 #show is for 1 product & is looking for a variable that is "@product"
+
+#     # render json: {message: product.image_url}
+
+
+
+# end

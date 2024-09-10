@@ -7,3 +7,14 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+product = Product.new(
+    name: "basketball",
+    price: 50,
+    image_url:
+     "https://cdn.pixabay.com/photo/2013/07/12/14/07/basketball-147794_1280.png",
+    description: "orange ball",
+   )
+   product.save
+
+   p "nsdjsn"

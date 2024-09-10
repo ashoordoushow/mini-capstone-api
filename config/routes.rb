@@ -5,12 +5,30 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
 
-  
-  get "/products" => "products#index" #now we're going to use this route to display all products at once
+  post "/products" => "products#create"
+  get "/products/:id" => "products#show"
+  get "/products" => "products#index"
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# get "/products" => "products#index" #now we're going to use this route to display all products at once
   # get "/products/:id" => "products#show"
   # post "/products" => "products#create"
   # get "/one_product" => "products#one" #this was used to display how we used the 'show' 'jbuilder' file to display 1 product at a time 
-  get "/one_product/:id" => "products#show" # this is a SEGMENT PARAM very useful and important! # '/:' 'purple_hippo' can be anything 
+  # get "/one_product/:id" => "products#show" # this is a SEGMENT PARAM very useful and important! # '/:' 'purple_hippo' can be anything 
                                           #make sure if you're going to do the 'show' method for singular products always make the 'action:' show, this is the proper way to code.
   
   
@@ -23,4 +41,3 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-end
