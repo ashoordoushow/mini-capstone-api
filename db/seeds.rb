@@ -8,7 +8,7 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-product = Product.new(
+product = (
     name: "basketball",
     price: 50,
     image_url:
@@ -17,4 +17,4 @@ product = Product.new(
    )
    product.save
 
-   p "nsdjsn"
+ 

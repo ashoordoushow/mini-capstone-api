@@ -1,16 +1,19 @@
 class ProductsController < ApplicationController
     def create
-        p params[:description]
-        @product = Product.new(             #add '@' here       #I can run this in my controller and create new syntax through my controller
-            name: params[:name], 
-            price: params[:price], 
-            image_url: params[:image_url], 
-            description: params[:description]
-            )
-            @product.save  #also must add '@' to this as well
-        render template: "products/show"
-            #render json: {name: "hjbsd"} #change this to render template now
+        render json: {name: "jknsdf"}
     end
+    # def create
+    #     p params[:description]
+    #     @product = Product.new(             #add '@' here       #I can run this in my controller and create new syntax through my controller
+    #         name: params[:name], 
+    #         price: params[:price], 
+    #         image_url: params[:image_url], 
+    #         description: params[:description]
+    #         )
+    #         @product.save  #also must add '@' to this as well
+    #     render template: "products/show"
+    #         #render json: {name: "hjbsd"} #change this to render template now
+    # end
 
     def index
         @products = Product.all
